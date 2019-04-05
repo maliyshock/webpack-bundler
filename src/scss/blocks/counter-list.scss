@@ -1,0 +1,50 @@
+.counter-list {
+  $c: &;
+  @include reset-ul;
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  &__item {
+    display: flex;
+
+    & + & {
+      margin-top: 20px;
+    }
+
+    @include for-tablet-landscape-up {
+      & + & {
+        margin-top: 32px;
+      }
+    }
+  }
+
+  &__counter {
+    @include makeCircle(40px,40px, transparent);
+
+    flex-shrink: 0;
+
+    margin-right: 20px;
+
+    border: 2px solid $violet;
+
+    font-size: 24px;
+    color: $violet;
+    
+    @include for-tablet-landscape-up {
+      width: 78px;
+      height: 78px;
+
+      margin-right: 32px;
+
+      border-radius: 50%;
+
+      font-size: 32px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+  }
+}

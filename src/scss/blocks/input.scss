@@ -1,0 +1,52 @@
+.input {
+  $c: &;
+  display: block;
+
+  position: relative;
+
+  height: 100%;
+
+  padding-left: 0;
+  padding-right: 0;
+
+  &__inner {
+    display: block;
+  }
+
+  &__field {
+    @include resetInput;
+
+    width: 100%;
+
+    padding: 20px 15px;
+
+    border-radius: $bd-radius;
+    border: 1px solid darken($light-blue, 10%);
+
+    background-color: $light-blue;
+
+    font-size: 16px;
+
+    //&:focus, &.freeze {
+    //  & + #{$c}__name {
+    //    color: $gray;
+    //    transform: translate(0, -30px) scale(0.7);
+    //  }
+    //}
+  }
+
+  &__name {
+    position: absolute;
+
+    left: 14px;
+    top: 3px;
+
+    color: $dark-gray;
+
+    transform-origin: 0;
+    transition:
+            transform $transition-time,
+            color $transition-time,
+            font-size $transition-time;
+  }
+}

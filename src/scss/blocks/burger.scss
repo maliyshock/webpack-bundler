@@ -1,0 +1,10 @@
+.burger {
+  @include mobileMenuButton;
+  margin-right: 12px;
+
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}

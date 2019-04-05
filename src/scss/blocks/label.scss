@@ -1,0 +1,12 @@
+.label {
+  margin-bottom: 10px;
+
+  color: #777777;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+
+  &--color-green {
+    color: $green;
+  }
+}

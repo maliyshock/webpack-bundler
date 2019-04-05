@@ -1,0 +1,105 @@
+.button {
+  $c: &;
+  @include resetButton;
+  display: inline-block;
+
+  width: 100%;
+  max-width: 250px;
+
+  padding: 20px;
+
+  background-color: $button;
+
+  border-radius: $big-bd-radius;
+  border: 1px solid transparent;
+
+  box-shadow: 0 0 0 0 transparent;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $button-text;
+
+  transition:
+          background-color $transition-time,
+          transform $transition-time,
+          box-shadow $transition-time;
+
+  &:hover {
+    background-color: darken( adjust-hue($button, -2), 4%);
+    transform: translateY(-2px);
+    @include highlighted($button);
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $black;
+    font-weight: 600;
+  }
+
+  &--size-small {
+    max-width: 270px;
+    min-width: 160px;
+
+    padding: 8px 15px;
+
+    border-radius: $bd-radius;
+
+
+    #{$c}__text {
+      font-size: 12px;
+    }
+  }
+
+  &--size-big {
+    min-width: 160px;
+    max-width: 100%;
+    width: auto;
+
+    padding: 20px;
+
+    border-radius: $bd-radius;
+
+    @include for-tablet-landscape-up {
+      padding: 25px 32px;
+
+
+      #{$c}__text {
+        font-size: 18px;
+      }
+    }
+
+    #{$c}__text {
+      font-size: 16px;
+    }
+  }
+
+  &--highlighted {
+    @include highlighted($button);
+  }
+
+  &--no-transform {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &--no-top-border {
+    border-radius: 0 0 $bd-radius $bd-radius;
+  }
+
+  &--width-full {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &--color-light-blue {
+    @include colorizeButton($light-blue, $black);
+  }
+
+  &--color-violet {
+    @include colorizeButton($violet, $white);
+  }
+}

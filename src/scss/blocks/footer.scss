@@ -1,0 +1,116 @@
+.footer{
+  @include invShadow;
+  position: relative;
+  z-index: 1;
+
+  margin-top: 60px;
+
+  & .contacts {
+    @include for-phone-only {
+      text-align: center;
+    }
+  }
+
+  & .contacts__side {
+    @include for-phone-only {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  & .list {
+    @include for-phone-only {
+      justify-content: center;
+    }
+  }
+
+  &__inner {
+    @include dflex;
+    @include wrapper;
+    justify-content: space-between;
+    align-items: center;
+
+    @include section;
+
+    &--vertical-paddings {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__row {
+    @include dflex;
+
+    width: 100%;
+  }
+
+  &__column {
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    width: 0;
+    min-width: 300px;
+
+    padding-right: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @include for-tablet-landscape-up {
+      padding-right: 60px;
+    }
+
+    @include for-phone-only {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    width: 100%;
+
+    margin-bottom: 8px;
+
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+
+  &__floor {
+    &--color-light-blue {
+      @include smallColoredBlockIndents;
+
+      background-color: $light-blue;
+    }
+  }
+
+  &__side {
+    @include dflex;
+    flex-grow: 1;
+    //flex-shrink: 0;
+    flex-basis: 100%;
+    align-items: center;
+
+    max-width: 100%;
+
+    border-top: 1px solid $light-blue;
+
+    @include for-tablet-landscape-up {
+      flex-basis: calc(50% - 16px);
+
+      &:first-child {
+        margin-right: 32px;
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+        border-top: none;
+      }
+    }
+  }
+
+  &__text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}

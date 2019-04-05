@@ -1,0 +1,176 @@
+.accordion {
+  $c: &;
+
+  @include blockBase;
+
+
+  margin-bottom: 10px;
+
+  &.opened {
+    & #{$c}__head {
+      color: $violet;
+
+      &:after {
+        transform: rotate(180deg);
+        border-top-color: $violet;
+      }
+    }
+  }
+
+  &__head {
+    position: relative;
+
+    @include dflex;
+    align-items: center;
+
+    padding: 20px;
+
+    background-color: $white;
+
+    font-size: 24px;
+    text-decoration: none;
+    color: $black;
+
+    @include for-tablet-portrait-up {
+      flex-wrap: nowrap;
+    }
+
+    @include for-tablet-landscape-up {
+      padding: 32px 64px 32px 32px;
+    }
+
+    &:after {
+      @include pseudo-elem;
+      z-index: 1;
+      right: 16px;
+      top: 36px;
+
+      width: 12px;
+      height: 12px;
+      @include tri-b($black,6px,6px);
+
+      transition: transform $transition-time;
+
+      @include for-tablet-landscape-up {
+        @include tri-b($black,8px,8px);
+        right: 40px;
+        top: 48px;
+      }
+    }
+  }
+
+  &__title-area {
+    display: flex;
+
+    width: 100%;
+
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+
+    @include for-tablet-portrait-up {
+      width: auto;
+
+      font-size: 20px;
+    }
+
+    @include for-tablet-landscape-up {
+      font-size: 24px;
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+    padding-right: 20px;
+
+    @include for-tablet-landscape-up {
+      padding-right: 28px;
+    }
+  }
+
+  &__counter {
+    flex-shrink: 0;
+    display: inline-block;
+
+    padding-right: 16px;
+
+    @include for-tablet-portrait-up {
+      min-width: 60px;
+
+      padding-right: 28px;
+      padding-left: 16px;
+    }
+  }
+
+  &__body {
+    display: none;
+
+    padding: 32px;
+
+    background-color: $white;
+
+    border-top: 1px solid $light-gray;
+
+    font-size: 16px;
+  }
+
+  &__amount {
+    flex-shrink: 0;
+    align-self: baseline;
+
+    padding-right: 28px;
+    padding-left: 32px;
+
+    font-weight: 600;
+    font-size: 18px;
+    color: $gray;
+
+    @include for-tablet-portrait-up {
+      margin-left: auto;
+
+      padding-left: 0;
+    }
+  }
+
+  &__bonus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: static;
+    width: calc(100% + 40px);
+    margin-right: -40px;
+    transform: translateX(-20px) translateY(20px);
+
+    background-color: $yellow;
+
+    font-size: 18px;
+
+    @include for-tablet-portrait-up {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 32px;
+      height: 100%;
+
+      margin-right: 0;
+
+      transform: none;
+
+      & > * {
+        transform-origin: 50%;
+        transform: rotate(-90deg);
+      }
+    }
+
+  }
+}
+
+.accordions-wrapper {
+  background-color: $light-blue;
+  
+  border-radius: $bd-radius;
+}

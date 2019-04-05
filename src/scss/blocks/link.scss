@@ -1,0 +1,41 @@
+.link {
+  $c: &;
+
+  display: inline-flex;
+
+  color: inherit;
+  fill: inherit;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid transparent;
+
+  transition: transform $transition-time;
+
+  & svg, & .link__text {
+    fill: inherit;
+    transition: color $transition-time, fill $transition-time;
+  }
+
+  &:hover {
+    //transform: translateY(-2px);
+  }
+
+  &:hover svg, &:hover .link__text {
+    color: $link-hover;
+    fill: $link-hover;
+  }
+
+  &--no-transform {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &--color-white {
+    & svg, & #{$c}__text, &:hover svg, &:hover #{$c}__text {
+      color: $white;
+      fill: $white;
+    }
+  }
+}

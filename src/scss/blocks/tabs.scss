@@ -1,0 +1,111 @@
+.tabs {
+  $c: &;
+
+  @include blockBase;
+  @include shadow;
+
+  background-color: $white;
+
+  &--width-short {
+    max-width: 940px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__list {
+    @include reset-ul;
+    display: flex;
+    flex-wrap: nowrap;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+
+    @include for-tablet-landscape-up {
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+  }
+
+  &__item {
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    max-width: 100%;
+
+    @include for-tablet-landscape-up {
+      width: 0;
+    }
+  }
+
+  &__panel {
+    display: none;
+    flex-wrap: wrap;
+
+    padding: 24px;
+
+    @include for-tablet-landscape-up {
+      flex-wrap: nowrap;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  &__content {
+
+    @include for-tablet-landscape-up {
+      padding-right: 32px;
+    }
+  }
+
+  &__tab {
+    display: block;
+
+    height: 100%;
+
+    padding: 24px 20px 20px 20px;
+
+    border-radius: 0 0 $bd-radius $bd-radius;
+
+    color: $black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: normal;
+
+    transition: background-color $transition-time;
+
+    @include for-tablet-landscape-up {
+      &.active, &:hover {
+        transform: translateY(-2px);
+      }
+    }
+
+    &.active {
+      background-color: $yellow;
+
+      color: $white;
+      cursor: default;
+    }
+  }
+
+  &__text {
+    margin-top: 12px;
+  }
+
+  &__image {
+    flex-shrink: 0;
+    order: -1;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @include for-tablet-landscape-up {
+      order: 1;
+    }
+  }
+}

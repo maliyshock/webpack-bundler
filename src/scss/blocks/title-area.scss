@@ -1,0 +1,32 @@
+.title-area {
+  margin-bottom: 32px;
+
+  &__action-title {
+    @include dflex;
+    align-items: center;
+    justify-content: center;
+
+
+    @include for-tablet-portrait-up {
+      justify-content: space-between;
+
+      & > *:first-child {
+        margin-right: 32px;
+      }
+    }
+
+    & > * {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__h2 {
+    @include h2;
+    width: 100%;
+
+    @include for-tablet-portrait-up {
+      width: auto;
+    }
+  }
+}

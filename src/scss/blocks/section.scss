@@ -1,0 +1,182 @@
+.section {
+  $c: &;
+
+  &--bg-light-blue {
+    background-color: $light-blue;
+
+    .slider__button {
+      background-color: $white;
+      @include shadow;
+    }
+  }
+
+  &--bg-violet {
+    background-image: url('images/bg-violet.svg');
+    background-size: cover;
+
+    color: $white;
+
+    @include for-tablet-landscape-up {
+      background-size: cover;
+    }
+  }
+
+  &--ovh {
+    overflow: hidden;
+  }
+
+  &--pos-relative {
+    position: relative;
+
+    #{$c}__inner {
+      position: relative;
+    }
+  }
+
+  &--paddings-vertical {
+    @include coloredBlockIndents;
+  }
+
+  &--margin-top {
+    @include marginTop;
+  }
+
+  &--sm-margin-top {
+    @include smMarginTop;
+  }
+
+  &--padding-top {
+    @include paddingTop;
+  }
+
+  &--sm-padding-top {
+    @include smPaddingTop;
+  }
+
+  &--width-extended {
+    #{$c}__title-area {
+      position: relative;
+    }
+    #{$c}__inner {
+      max-width: 1350px;
+
+      @include for-tablet-landscape-up {
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    @include for-tablet-landscape-up {
+      //height: 650px;
+    }
+
+    &--violet {
+      background-image: url('images/bg-violet.svg');
+      background-size: cover;
+
+      color: $white;
+
+      @include for-tablet-landscape-up {
+        background-size: cover;
+      }
+    }
+  }
+
+  &__bg-wave {
+    position: absolute;
+    z-index: 3;
+    bottom: -1px;
+
+    width: 100%;
+
+    & svg {
+      height: auto;
+      width: 100%;
+      fill: $white;
+    }
+  }
+
+  &__inner {
+    @include wrapper;
+    @include section;
+  }
+
+  &__title {
+    text-align: center;
+
+    &.h2 {
+      margin-top: 18px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &.h5, &.h4 {
+      margin-top: 12px;
+
+      @include for-tablet-landscape-up {
+        margin-top: 16px;
+      }
+    }
+
+    &--color-dark-gray {
+      color: $dark-gray;
+    }
+  }
+
+  &__form-area {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__button-area {
+    @include dflex;
+    justify-content: center;
+    align-items: center;
+
+    @include for-tablet-portrait-up {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    & + & {
+      margin-top: 25px;
+    }
+
+    @include for-tablet-portrait-up {
+      max-width: 300px;
+
+      padding-left: 15px;
+      padding-right: 15px;
+
+      & + & {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  &__text-area {
+    padding-top: 10px;
+    padding-bottom: 50px;
+  }
+}

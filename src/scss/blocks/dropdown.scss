@@ -1,0 +1,137 @@
+.dropdown {
+  $c: &;
+
+  @include dflex;
+  align-items: center;
+
+  position: relative;
+
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  cursor: pointer;
+
+  border: 1px solid #aaaaaa;
+
+  &:after {
+    @include pseudo-elem;
+    right: 15px;
+    top: calc(50% - 5px);
+
+    width: 12px;
+    height: 12px;
+
+    background-image: url('images/tick-gray.svg');
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: contain;
+
+    transform-origin: center;
+
+    transition: transform $transition-time;
+  }
+
+  &--big {
+    padding-right: 60px;
+
+    &:after{
+      @include for-tablet-landscape-up {
+        right: 20px;
+
+        width: 17px;
+        height: 17px;
+
+        background-image: url('images/tick-big.svg');
+      }
+    }
+  }
+
+  &.opened {
+    //border-color: $sky;
+
+    &:after {
+      transform: rotate(180deg);
+    }
+    #{$c}__list {
+      display: block;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    z-index: $droplist-layer;
+
+    box-shadow: 0 0 10px lighten($light-gray-1, 5%);
+
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+
+    padding: 10px 15px;
+
+    //box-shadow: 0 0 0 1px $sky;
+
+    background-color: #fff;
+
+    list-style-type: none;
+
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    .form__input--big & {
+      max-height: 200px;
+    }
+  }
+
+  &__link {
+    display: block;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-decoration: none;
+    color: $gray;
+
+    &:hover {
+      #{$c}__text {
+        color: $blue;
+      }
+    }
+
+    &.active {
+      #{$c}__text {
+        color: black;
+      }
+
+      &:hover {
+        #{$c}__text {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  &__chosen {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    font-size: 14px;
+    letter-spacing: .1em;
+    color: #aaaaaa;
+  }
+
+  &__text {
+    //background-image: linear-gradient(to bottom, rgba(35, 178, 255, 0) 0%, rgba(35, 178, 255, 0) 20%, rgba(35, 178, 255, 1) 20%, rgba(35, 178, 255, 1) 100%);
+    background-size: 100% 0;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    //transition: background-size $quick-transition-time, color $quick-transition-time;
+  }
+}

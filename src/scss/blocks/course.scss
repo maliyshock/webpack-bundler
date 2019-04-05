@@ -1,0 +1,194 @@
+.course {
+  position: relative;
+  overflow: hidden;
+
+  background-image: url('images/courses/course-bg.svg');
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding-bottom: 14%;
+
+  &__inner {
+    @include dflex;
+    align-items: center;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 4;
+
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    text-align: center;
+
+    @include for-tablet-landscape-up {
+      text-align: left;
+      @include f-col(6);
+    }
+  }
+
+  &__text {
+    margin-top: 1em;
+
+    font-weight: 400;
+
+    @include for-tablet-landscape-up {
+      max-width: 520px;
+    }
+  }
+
+  &__btn-area {
+    margin-top: 28px;
+    @include for-tablet-landscape-up {
+      margin-top: 40px;
+    }
+  }
+
+  &__img {
+    order: -1;
+
+    flex-shrink: 0;
+
+    max-width: 400px;
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    transform: translateX(5%) translateY(5%);
+
+    @include for-tablet-landscape-up {
+      order: 1;
+      @include f-col(6);
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  &__about {
+    @include dflex;
+    width: 100%;
+
+    padding-top: 5%;
+  }
+
+  &__about-description {
+    position: relative;
+
+    margin-left: 3%;
+
+      &:before {
+        @include pseudo-elem;
+        z-index: 1;
+
+        top: -96.56%;
+        left: -17.83%;
+
+        width: 157%;
+        height: 385%;
+
+        background-image: url('images/courses/egg.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+  }
+
+  &__about-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 600px;
+
+    background-color: transparentize($white, 0.1);
+
+    border-radius: $bd-radius;
+
+    padding-top: 24px;
+
+    @include for-tablet-landscape-up {
+      padding-top: 0;
+    }
+
+  }
+
+  &__about-text {
+    margin-top: 0.7em;
+
+    font-weight: 400;
+  }
+
+  &__about-img {
+    position: relative;
+    z-index: 2;
+
+    width: 146px;
+    height: 168px;
+
+    margin-left: 3%;
+    margin-right: 3%;
+
+    & img {
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    &:before {
+      @include pseudo-elem;
+      z-index: 1;
+
+      top: -125%;
+      right: -21.23%;
+
+      width: 378%;
+      height: 296.42%;
+
+      background-image: url('images/courses/bean.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  &__numbers {
+    position: absolute;
+    z-index: 3;
+    top: 55%;
+    left: 55%;
+
+    @include dflex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    width: 104px;
+    height: 104px;
+
+    background-color: $white;
+
+    border-radius: 100%;
+
+    box-shadow: 0 0 0 12px $violet;
+
+    text-align: center;
+    font-size: 14px;
+  }
+
+  &__number {
+    font-weight: 600;
+
+    &--size-big {
+      font-size: 32px;
+      font-weight: 700;
+
+      line-height: 100%;
+    }
+
+    &--color-yellow {
+      color: $yellow;
+    }
+  }
+}

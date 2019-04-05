@@ -1,0 +1,25 @@
+.logos {
+  &__list {
+    @include reset-ul;
+    @include dflex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 20px;
+
+    @include for-phone-only {
+      @include dflex;
+      justify-content: center;
+
+      width: 100%;
+    }
+
+    img {
+      height: 100px;
+      max-width: unset;
+      width: auto;
+    }
+  }
+}

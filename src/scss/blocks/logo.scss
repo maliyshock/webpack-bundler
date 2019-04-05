@@ -1,0 +1,14 @@
+.logo {
+  display: inline-block;
+
+  width: 140px;
+
+  @include for-tablet-landscape-up {
+    width: 180px;
+  }
+
+  & img{
+    display: block;
+    height: 35px;
+  }
+}

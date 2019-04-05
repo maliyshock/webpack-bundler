@@ -1,0 +1,45 @@
+.story {
+  &__info,  &__image {
+    flex-basis: 100%;
+  }
+
+    &__image {
+    @include for-tablet-landscape-up {
+      @include f-col(5);
+    }
+  }
+
+  &__table {
+    margin-top: 12px;
+    @include for-tablet-landscape-up {
+      margin-top: 16px;
+    }
+  }
+
+  &__info {
+    @include for-tablet-landscape-up {
+      @include f-col(7);
+    }
+  }
+
+  &__title {
+    margin-top: 20px;
+
+    @include for-tablet-landscape-up {
+      margin-top: 0;
+    }
+  }
+
+  &__block {
+    position: relative;
+    z-index: 1;
+
+    padding-top: 60px;
+
+    @include for-tablet-landscape-up {
+      &:nth-child(2n+1) .column:last-child {
+        order: -1;
+      }
+    }
+  }
+}

@@ -1,0 +1,162 @@
+.icon {
+  $c: &;
+  display: inline-flex;
+  // some small icons adjusted not right in other case
+  align-items: center;
+
+  &--color-violet {
+    @include coloriseIcon($violet);
+  }
+
+  &--color-white {
+    @include coloriseIcon($white);
+  }
+
+  &--color-black {
+    @include coloriseIcon($black);
+  }
+
+  &--color-gray {
+    @include coloriseIcon($gray);
+  }
+
+  &--color-dark-gray {
+    @include coloriseIcon($dark-gray);
+  }
+
+  &--size-big {
+    #{$c}__image {
+      width: 44px;
+      height: 44px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+
+      &:only-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--size-bigger {
+    #{$c}__image {
+      width: 44px;
+      height: 44px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+
+      &:only-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--size-giant {
+    #{$c}__image {
+      width: 84px;
+      height: 84px;
+    }
+  }
+
+  &--shape-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 72px;
+    height: 72px;
+
+    padding: 12px ;
+
+    margin: 12px auto;
+
+    border-radius: $bd-radius;
+  }
+
+  &--bg-yellow {
+    background-color: $yellow;
+  }
+
+  &--bg-violet {
+    background-color: $violet;
+  }
+
+  &--bg-black {
+    background-color: $black;
+  }
+
+  &--bg-gray {
+    background-color: $gray;
+  }
+
+  &--rounded {
+    @include makeCircle(50px,50px, transparent);
+  }
+
+  &--bg-violet {
+    background-color: $violet;
+  }
+
+  &__text {
+    align-self: center;
+
+    // ??
+    // minor crush on slider icons
+
+    .list--width-strict & {
+      max-width: 160px;
+    }
+
+    font-size: 16px;
+
+    &--size-biggest {
+      font-size: 32px;
+      font-weight: 700;
+    }
+  }
+
+  &__image {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    width: 19px;
+    height: 19px;
+
+    //margin-top: 2px;
+
+    & > * {
+      height: 100%;
+      display: block;
+    }
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    &:last-child {
+      margin-left: 5px;
+    }
+
+    &:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+
