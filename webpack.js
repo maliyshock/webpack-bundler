@@ -5,16 +5,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackplugin = require('html-webpack-plugin');
 
 const PATHS = {
-    source: path.join(__dirname, 'src'),
-    build: path.join(__dirname, 'build')
+    source: __dirname + '/src',
+    build: __dirname + '/build'
 };
 
-const config = {
-    entry: {
-        index: PATHS.source + '/js/index.js',
-    },
+var config = {
+    entry: path.resolve(__dirname, 'src') + '/js/index.js',
     output: {
         filename: '[name].bundle.js',
         path: PATHS.build,
@@ -34,6 +33,10 @@ const config = {
             { context: PATHS.source + '/assets/images', from: '**/*', to: 'images' },
             { context: PATHS.source + '/assets/fonts', from: '**/*', to: 'fonts' }
         ]),
+        new HtmlWebpackplugin({
+            filename: 'index.html',
+            template: PATHS.source + '/pug/index.pug'
+        }),
     ],
     module: {
         rules: [
@@ -79,16 +82,13 @@ const config = {
 module.exports = (env, argv) => {
     if(argv.mode === 'production') {
         config.optimization = {
-            minimizer: [new UglifyJsPlugin({sourceMap: true})],
+            minimizer: [new UglifyJsPlugin({sourceMap: false})],
         }
     } else {
         config.watch = true;
-        config.watchOptions = {
-            ignored: ['node_modules']
-        }
+        config.watchOptions = {ignored: ['node_modules']};
         config.devServer = {
-            stats: 'errors-only',
-                port: 9000
+            stats: 'errors-only', hot: true, contentBase:  PATHS.build
         }
     }
 
