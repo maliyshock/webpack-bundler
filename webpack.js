@@ -55,7 +55,18 @@ var config = {
                 ]
             }, {
                 test: /\.scss$/,
-                use: [ { loader: 'style-loader'},{loader: 'css-loader'},{loader: 'sass-loader'} ]
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: { url: false, sourceMap: true }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             }, {
                 test: /\.js/,
                 exclude: /node_modules/,

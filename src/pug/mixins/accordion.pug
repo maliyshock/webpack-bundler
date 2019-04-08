@@ -1,0 +1,18 @@
+mixin accordion (object)
+    .accordion.js-accordion
+        a.accordion__head.js-accordion-head(href='#')
+            if(object.counter)
+                .accordion__title-area
+                    span.accordion__counter #{object.counter}
+                    span.accordion__title #{object.title}
+            else
+                span.accordion__title #{object.title}
+
+            if(object.amount)
+                span.accordion__amount #{object.amount}
+
+            if(object.bonus)
+                .accordion__bonus
+                    span Бонус
+        .accordion__body.js-accordion-body
+            p #{object.text}
