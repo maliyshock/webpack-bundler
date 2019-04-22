@@ -2,9 +2,35 @@ include mixins/all
 
 doctype html
 html(lang='en')
-  head
-    include parts/head
+    head
+        include parts/head
 
-    body.page
-      include parts/header
-      include parts/footer
+        body.page
+            include parts/header
+
+            main.page__inner
+
+                article.section
+                    .section__inner
+                        .grid.grid-large-2
+                            .grid__column
+                                +title-container({h1:'LaTeX, instantly.', h4:'Take a picture of your notes and get the LaTeX on your desktop in seconds. Mobile Snip syncs seamlessly with your desktop, so you can save even more time.' })
+
+                                .box
+                                    +button({})
+
+
+                            .grid__column
+                                .section__image-container
+                                    img(srcset='images/hero.png 1x, images/hero@2x.png 2x')
+
+                article.section
+                    .section__inner
+                        +title-container({h2:'How does it work?', h4:'Whether on desktop or mobile, it takes only four simple steps.', className: 'title-container--self-center title-container--content-center' })
+
+                        .box.box--self-center
+
+
+
+
+            include parts/footer
