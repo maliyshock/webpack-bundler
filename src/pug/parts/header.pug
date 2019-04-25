@@ -1,50 +1,7 @@
 //header.header.header--bg-white
 header.header.js-page-header
     .header__inner
-        +logo({className: 'header__logo js-go-top'})
-            include ../../assets/images/logo.svg
-
-        button.header__burger.burger.js-menu-trigger
-            +icon({className: 'burger__icon'})
-                include ../../assets/images/burger.svg
-
-        .header__navigation-wrapper.js-navigation
-            button.header__cross.header__cross--hidden-from-landscape.js-menu-trigger
-                +icon({className: ''})
-                    include ../../assets/images/close.svg
-
-            .header__navigation(id='navigation')
-                nav.navigation.navigation--weight-medium.navigation--highlight-last-item
-                    ul.navigation__list
-                        li.navigation__item
-                            a.navigation__link.js-travel-to(href='#overview') Overview
-                        li.navigation__item
-                            a.navigation__link.js-travel-to(href='#features') Features
-                        li.navigation__item
-                            a.navigation__link.js-travel-to(href='#industries') Industries
-                        li.navigation__item.show-for-landscape
-                            a.navigation__link.js-travel-to(href='#get-started') Get Started
-
-            .header__links
-                nav.navigation
-                    ul.navigation__list
-                        li.navigation__item
-                            a.navigation__link(href='#') Docs & Support
-                        li.navigation__item
-                            a.navigation__link(href='#') Sign In →
-
-            .header__buttons
-                .header__button
-                    +button({text:'Get Started', classNames: ' js-go-to', href:'#get-started'})
-                .header__button
-                    +dropdown({
-                        placeholder: 'English',
-                        links: true,
-                        icon: true,
-                        id: 'lang',
-                        list: ['English', 'French']
-                    })
-                        include ../../assets/images/globe.svg
+        
 
 
 
