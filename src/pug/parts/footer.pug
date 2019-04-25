@@ -1,3 +1,45 @@
 //- src/views/components/footer.pug
 
 footer.footer
+    .footer__inner
+        +logo({className: 'footer__logo footer__column', text: 'Intelligent QA Solutions™'})
+            include ../../assets/images/logo.svg
+
+
+        .footer__navigation
+            nav.navigation
+                ul.navigation__list
+                    li.navigation__item
+                        a.navigation__link(href='#') About
+                    li.navigation__item
+                        a.navigation__link(href='#') Contact
+                    li.navigation__item
+                        a.navigation__link(href='#') Docs & Support
+                    li.navigation__item
+                        a.navigation__link(href='#') Terms & Privacy
+                    li.navigation__item
+                        a.navigation__link(href='#') Sign In →
+
+        .footer__button.footer__column
+            +dropdown({
+                placeholder: 'English',
+                links: true,
+                icon: true,
+                className: 'dropdown--open-upstairs dropdown--size-small',
+                id: 'lang',
+                list: ['English', 'French']
+            })
+                include ../../assets/images/globe.svg
+
+        .footer__socials.footer__column.socials
+            ul.socials__list
+                li.socials__item
+                    a.socials__link(href='#' target='_blank')
+                        +icon({})
+                            include ../../assets/images/socials/facebook.svg
+                li.socials__item
+                    a.socials__link(href='#' target='_blank')
+                        +icon({})
+                            include ../../assets/images/socials/linkedin.svg
+
+

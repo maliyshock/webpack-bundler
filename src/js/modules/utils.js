@@ -25,7 +25,7 @@ function isMobile() {
         windowWidth = $(window).width();
     })
 
-    if(window.orientation !== undefined || windowWidth < 1280) {
+    if(window.orientation !== undefined || windowWidth < 1024) {
         return true;
     } else {
         return false;

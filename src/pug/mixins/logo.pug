@@ -1,0 +1,6 @@
+mixin logo (object)
+    a.logo(class=object.className href='/')
+        .logo__img
+            block
+        if(object.text)
+            .logo__text #{object.text}

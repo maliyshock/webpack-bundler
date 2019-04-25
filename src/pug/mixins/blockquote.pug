@@ -1,0 +1,10 @@
+mixin blockquote(object)
+    blockquote.blockquote
+        .blockquote__text
+            | “
+            | #{object.text}
+            | ”
+        .blockquote__author
+            strong #{object.author}
+            |
+            | #{object.position}
