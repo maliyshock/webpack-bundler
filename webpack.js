@@ -37,10 +37,6 @@ var config = {
             filename: 'index.html',
             template: PATHS.source + '/pug/index.pug'
         }),
-        new HtmlWebpackplugin({
-            filename: 'index_cut.html',
-            template: PATHS.source + '/pug/index_cut.pug'
-        }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
