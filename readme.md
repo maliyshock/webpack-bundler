@@ -12,4 +12,7 @@ npm run develop
 
 # Build for production
 npm run build
+
+# create new scss
+node util scss name
 ```
