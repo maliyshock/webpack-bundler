@@ -1,6 +1,17 @@
 //header.header.header--bg-white
 header.header.js-page-header
-    .header__inner
+    .header__navigation
+            .header__burger
+                +icon({})
+                    // include ../../assets/images/burger.svg
+
+            .inline-list
+                ul.inline-list__list
+                    - var items = ['Snip', 'OCR', 'Blog', 'Release']
+                    - for(var i = 0; i < items.length; i++)
+                        li.inline-list__item
+                            a.inline-list__link #{items[i]}
+
         
 
 
