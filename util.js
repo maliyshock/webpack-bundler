@@ -1,8 +1,9 @@
 const fs = require('fs');
 
 const scss = './src/scss/';
-const operation = process.argv[3];
-const val = process.argv[4];
+const pug = './src/pug/';
+const operation = process.argv[2];
+const val = process.argv[3];
 
 switch(operation) {
     case 'scss': {
@@ -16,7 +17,12 @@ switch(operation) {
      break;
 
     case 'pug': {
+        fs.writeFile(pug+'mixins/'+val+'.pug', 'mixin '+val+' (object) '+'\n'+ '    .'+val, function(){});
 
+        fs.appendFile(pug+'mixins/all.pug', '\n'+'include '+val, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+        });
     }
 }
 
