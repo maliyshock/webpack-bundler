@@ -1,0 +1,7 @@
+mixin input(object)
+    .input
+        label.input__label.js-input-wrapper
+            span.input__name #{object.label}
+            span.input__error.js-input-error #{object.error}
+            .input__field-wrapper(class=object.className)
+                input.input__field.js-field(type=object.type value=object.value placeholder=object.placeholder)

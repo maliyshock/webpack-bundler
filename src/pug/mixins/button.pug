@@ -1,0 +1,11 @@
+mixin button(object)
+    if(object.href)
+        a.button(class=object.classNames href=object.href)
+            +icon({text:object.text, className:'button__icon'})
+                block
+    else
+        button.button(class=object.classNames data-target=object.target)
+            +icon({text: object.text, className: 'button__icon'})
+                block
+
+

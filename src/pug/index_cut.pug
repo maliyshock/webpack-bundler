@@ -18,25 +18,23 @@ html(lang='en')
                     })
                         .section__button-area
                             +button({text:'Request a Demo ↓', classNames: 'js-go-to', href: '#get-started'})
-                            +button({text:'See how it works', classNames:'button--hollow'})
-                                include ../assets/images/play.svg
 
                     .logos
                         h5.h5.logos__title Trusted by the world’s most innovative businesses – big and small
 
-                        ul.logos__list
-                            li.logos__item
-                                include ../assets/images/companies/samsung.svg
-                            li.logos__item
-                                include ../assets/images/companies/digital_ocean.svg
-                            li.logos__item
-                                include ../assets/images/companies/new_relic.svg
-                            li.logos__item
-                                include ../assets/images/companies/doordash.svg
-                            li.logos__item
-                                include ../assets/images/companies/tradeshift.svg
-                            li.logos__item
-                                include ../assets/images/companies/instacart.svg
+                        //ul.logos__list
+                        //    li.logos__item
+                        //        include ../assets/images/companies/samsung.svg
+                        //    li.logos__item
+                        //        include ../assets/images/companies/digital_ocean.svg
+                        //    li.logos__item
+                        //        include ../assets/images/companies/new_relic.svg
+                        //    li.logos__item
+                        //        include ../assets/images/companies/doordash.svg
+                        //    li.logos__item
+                        //        include ../assets/images/companies/tradeshift.svg
+                        //    li.logos__item
+                        //        include ../assets/images/companies/instacart.svg
 
 
             article.section(id='overview')
@@ -243,57 +241,6 @@ html(lang='en')
                                                 .image-list__description #{texts[0]}
                                             img(srcset=img).image-list__image
 
-
-            article.section.section--bg-pre-white
-                .section__inner
-                    .tabs.js-tab-widget(data-aos="fade-up")
-                        h4.tabs__title Trusted by the world’s most innovative businesses – big and small
-
-                        ul.tabs__list.js-tabs-list(role='tablist')
-                            li.tabs__item
-                                a(href='#' role='tab' aria-selected='true' aria-controls='samsung-tab-content' id='samsung-tab' class='tabs__tab active js-tab')
-                                    .tabs__img
-                                        include ../assets/images/companies/samsung.svg
-                            li.tabs__item
-                                a(href='#' role='tab' aria-selected='false' aria-controls='do-tab-content' id='do-tab' class='tabs__tab js-tab')
-                                    .tabs__img
-                                        include ../assets/images/companies/digital_ocean.svg
-                            li.tabs__item
-                                a(href='#' role='tab' aria-selected='false' aria-controls='n-rlc-tab-content' id='n-rlc-tab' class='tabs__tab js-tab')
-                                    .tabs__img
-                                        include ../assets/images/companies/new_relic.svg
-                            li.tabs__item
-                                a(href='#' role='tab' aria-selected='false' aria-controls='d-dash-tab-content' id='d-dash-tab' class='tabs__tab js-tab')
-                                    .tabs__img
-                                        include ../assets/images/companies/doordash.svg
-
-                        .tabs__panel(id='samsung-tab-content' aria-labelledby='samsung-tab' class='tabs__panel active js-tab-panel')
-                            +blockquote({
-                                text: "Building the right data foundation has been a critical part of DoorDash's success. IntelliQ helps us get the visibility we need to make analytically driven decisions every day.",
-                                author: "— Jessica Lachs,",
-                                position: "Head of Analytics at DoorDash"
-                            })
-
-                        .tabs__panel(id='do-tab-content' aria-labelledby='do-tab' class='tabs__panel js-tab-panel')
-                            +blockquote({
-                                text: "Building the right data foundation has been a critical part of DoorDash's success. IntelliQ helps us get the visibility we need to make analytically driven decisions every day.",
-                                author: "— Jessica Lachs,",
-                                position: "Head of Analytics at DoorDash"
-                            })
-
-                        .tabs__panel(id='n-rlc-tab-content' aria-labelledby='n-rlc-tab' class='tabs__panel js-tab-panel')
-                            +blockquote({
-                                text: "Building the right data foundation has been a critical part of DoorDash's success. IntelliQ helps us get the visibility we need to make analytically driven decisions every day.",
-                                author: "— Jessica Lachs,",
-                                position: "Head of Analytics at DoorDash"
-                            })
-
-                        .tabs__panel(id='d-dash-tab-content' aria-labelledby='d-dashrlc-tab' class='tabs__panel js-tab-panel')
-                            +blockquote({
-                                text: "Building the right data foundation has been a critical part of DoorDash's success. IntelliQ helps us get the visibility we need to make analytically driven decisions every day.",
-                                author: "— Jessica Lachs,",
-                                position: "Head of Analytics at DoorDash"
-                            })
 
             article.section.section--bg-dark(id='get-started')
                 .section__inner

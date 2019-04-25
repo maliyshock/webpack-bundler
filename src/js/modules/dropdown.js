@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import  {events} from './utils.js'
 
 export let dropdowns = {
     cacheDom: function () {
@@ -28,36 +27,47 @@ export let dropdowns = {
             let $selectedItem = $self.find('.js-dropdown-selected ');
             let $dropdownLinks = $self.find('.js-dropdown-link');
             let $saveTarget = $($self.data('target'));
-
-            events.on('calculatorTabChanged', function () {
-                if($self.is(':visible')) {
-                    $saveTarget.val(value);
-                    events.emit('dropdownChanged', value)
-                }
-            });
+            let offset = $(element).offset().top - $(window).scrollTop();
 
             $self.on('click', (e) => {
-                e.stopPropagation();
-                this.hideDropdowns();
-
-                $self.addClass('opened')
-            });
-
-            $dropdownLinks.on('click',  (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
+                console.log('click');
+
+                if(!$self.hasClass('opened')) {
+                    this.hideDropdowns();
+
+                    $self.addClass('opened')
+                } else {
+                    this.hideDropdowns();
+                }
+
+            });
+
+            $self.keypress((event) => {
+                if (event.keyCode == 13) {
+                    $self.click();
+                }
+            })
+
+            $dropdownLinks.on('click',  (e) => {
+                console.log('links click');
                 let $link = $(e.currentTarget);
 
-                $dropdownLinks.removeClass('active');
-                $link.addClass('active');
-                value = $link.first().text();
+                if( !$link.attr('href') ) {
+                    e.preventDefault();
+                }
+                e.stopPropagation();
+
+
+                $dropdownLinks.removeClass('active').attr('aria-selected', false);
+                $link.addClass('active').attr('aria-selected', true);
+                value = $link.first().text().trim();
                 $selectedItem.text(value);
                 $saveTarget.val(value);
 
-                $self.removeClass('opened');
-
-                events.emit('dropdownChanged', value)
+                $self.removeClass('opened').addClass('active');
             });
         })
     },

@@ -1,6 +1,6 @@
-mixin icon (modificator, text)
-    span.icon(class=modificator)
+mixin icon (object)
+    span.icon(class=object.className)
         span.icon__image
             block
-        if(text)
-            span.icon__text #{text}
+        if(object.text)
+            span.icon__text #{object.text}

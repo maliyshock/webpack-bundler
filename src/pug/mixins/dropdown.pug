@@ -1,0 +1,44 @@
+mixin dropdown(object)
+    .input
+        label.input__label.dropdown.js-dropdown.active(class=object.className)
+            if(object.label)
+                span.input__name #{object.label}
+            if(object.error)
+                span.input__error #{object.error}
+
+            .input__field-wrapper
+                .input__field.dropdown__field(role="listbox" tabindex="0" id=object.id aria-labelledby="listbox1label")
+                    .dropdown__chosen
+                        if(object.icon)
+                            +icon({})
+                                block
+                        span.dropdown__selected.js-dropdown-selected #{object.list[0]}
+
+                        input.js-search-field(type='hidden', value='')
+
+                - var active = true
+                - var activeClassName = 'active'
+
+                ul.dropdown__list.dropdown-menu.js-dropdown-list
+                    if(object.list !== undefined)
+                        - for(var i = 0; i < object.list.length; i++)
+                            if(i > 0)
+                                - var active = false
+                                - var activeClassName = ''
+
+                            li.dropdown__item(role="option" aria-selected=active)
+                                if(object.links)
+                                    a(href='/' class=activeClassName).dropdown__link.js-dropdown-link
+                                        .dropdown__icon-wrapper
+                                            .dropdown__icon
+                                                include ../../assets/images/check.svg
+                                        span.dropdown__text #{object.list[i]}
+                                else
+                                    button.dropdown__link.js-dropdown-link(class=activeClassName)
+                                        .dropdown__icon-wrapper
+                                            .dropdown__icon
+                                                include ../../assets/images/check.svg
+                                        span.dropdown__text #{object.list[i]}
+
+
+
